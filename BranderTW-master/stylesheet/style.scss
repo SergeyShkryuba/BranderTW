@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic');
+@import "_colors";
+@import "./vendors/selectric";
+@import "./vendors/nouislider.css";
+
+* {
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+	font: 16px/1 "PT Sans", sans-serif;
+	color: $text-color;
+}
+
+.wrapper {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 100px 85px;
+}
+
+form {
+	padding-right: 20px;
+	background: transparent;
+	label {
+		margin-bottom: 42px;
+	}
+}
+
+.staff {
+	width: 183px;
+	font-size: 16px;
+	line-height: 34px;
+	border: none;
+	border-bottom: 1px solid $ch-color;
+	outline: none;
+}
+
+.metal {
+	border: none;
+	border-bottom: 1px solid $ch-color;
+}
+
+.form__item-text,
+.form__item-metal,
+.form__item-rate,
+.form__item-discont,
+.slide__wrapper {
+	display: flex;
+	justify-content: space-between;
+	font-weight: 900;
+	font-size: 16px;
+	line-height: 34px;
+}
+
+/* select */
+
+.form__item-metal {
+	.selectric {
+		border: none;
+		border-radius: 0;
+		border-bottom: 1px solid #777;
+		background-color: #fff;
+		.label {
+			padding-left: 0;
+			margin-left: 0;
+		}
+	}
+}
+
+.form__item-metal {
+	.selectric-items {
+		border: none;
+		border-radius: 0;
+		background: #fff;
+		li {
+			padding-left: 5px;
+			margin-left: 0;
+			&:last-child {
+				border-radius: 0;
+			}
+		}
+	}
+}
+
+.form__item-metal {
+	.selectric-open {
+		.selectric {
+			border-radius: 0;
+		}
+	}
+}
+
+.selectric {
+	width: 182px;
+	height: 38px;
+	border-radius: 25px;
+	.label {
+		padding-left: 7px;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 34px;
+	}
+	.button { 
+		right: 4px;
+		background-color: transparent;
+		&:after	{
+			top: -4px;
+			width: 7px;
+			height: 7px;
+			border: none;
+			border-bottom: 2px solid #777;
+			border-right: 2px solid #777;
+			transform: rotate(45deg);
+			transform-origin: 75% 65%;
+			transition: transform .3s;
+		}
+	}
+}
+
+.selectric-scroll {
+	li {
+		padding: 5px 15px;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 32px;
+	}
+}
+
+.selectric-open {
+	.button:after {
+		transform: rotate(-135deg);
+	}
+	.selectric {
+		border-radius: 23px 23px 0 0;
+	}
+}
+
+.selectric-items {
+	border-radius: 0 0 25px 25px;
+	li:last-child {
+		border-radius: 0 0 25px 25px;
+	}
+}
+
+/* End of select */
+/* checkbox */
+
+div.low {
+	position: relative;
+	width: 100%;
+	margin-bottom: 40px;
+	label {
+		font-size: 16px;
+		line-height: 34px;
+		color: $ch-color;
+	}
+	.check__info {
+		position: absolute;
+		top: -8px;
+		right: 0;
+		display: block;
+		width: 50%;
+		font-size: 13px;
+		line-height: 17px;
+		color: $wr-color;
+	}
+}
+
+.hidden {
+	opacity: 0;
+}
+
+.checkbox {
+	vertical-align: top;
+	margin: 0 3px 0 0;
+	width: 17px;
+	height: 17px;
+	&:not(checked) {
+		position: absolute;
+		opacity: 0;
+		+ label {
+			position: relative;
+			padding: 0 0 0 60px;
+			&:before {
+				content: 'нет';
+				position: absolute;
+				top: 3px;
+				left: 6px;
+				font-size: 12px;
+				line-height: 1;
+				color: #fff;
+				z-index: 1;
+			}
+			&:after {
+				content: 'да';
+				position: absolute;
+				top: 3px;
+				left: 29px;
+				font-size: 12px;
+				line-height: 1;
+				color: #fff;
+				z-index: 1;
+			}
+			.back {
+				content: '';
+				position: absolute;
+				top: -3px;
+				left: 0;
+				width: 50px;
+				height: 26px;
+				border-radius: 13px;
+				background: $ch-color;
+				box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+			}
+			.forward {
+				content: '';
+				position: absolute;
+				top: -1px;
+				left: 2px;
+				width: 22px;
+				height: 22px;
+				border-radius: 10px;
+				background: #FFF;
+				box-shadow: 0 2px 5px rgba(0,0,0,.3);
+			    transition: all .2s;
+			    z-index: 5;
+			}
+		}
+	}
+	&:checked {
+		+label .back {
+			background: $wr-color;
+		}
+		+label .forward {
+			left: 26px;
+		}
+	}
+	+label {
+		cursor: pointer;
+	}
+}
+
+/* End of checkbox */
+
+/* Tooltip */
+
+.form {
+	&__tooltip {
+		position:relative;
+		display: inline-flex;
+		align-items: center;
+		margin-right: auto;
+		margin-left: 10px;
+		line-height: 1;
+	}
+	&__tooltip-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 23px;
+		height: 23px;
+		padding-top: 1px;
+		font-size: 12px;
+		line-height: 1;
+		border: 1px solid #ccc;
+		color: #ccc;
+		border-radius: 50%;
+	}
+	&__tooltip-button:hover + &__tooltip-text {
+		visibility: visible;
+		opacity: 1;
+	}
+	&__tooltip-text {
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		min-width: 200px;
+		transform: translate(-50%, 0);
+		visibility: hidden;
+		opacity: 0;
+		z-index: 55;
+		transition: all .3s;
+		>span {
+			position: relative;
+			display: block;
+			padding: 10px;
+			font-weight: 400;
+			font-size: 13px;
+			line-height: 1.2;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			&:before {
+				content: '';
+				position: absolute;
+				bottom: 3px;
+				left: 50%;
+				width: 7px;
+				height: 7px;
+				border-style: solid;
+				border-color: #ccc;
+				border-width: 0 0 1px 1px;
+				transform: translate(-50%, 100%) rotate(-45deg);
+				background-color: #fff;
+			}
+		}
+	}
+}
+
+/* End of tooltip */
+/* Slide */
+
+.slider {
+	&__wrap {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 40px;
+	}
+	&__info {
+		width: 45%;
+		font-weight: 900;
+		font-size: 16px;
+		line-height: 24px;
+	}
+}
+
+#slider-range {
+	width: 55%;
+}
+
+.noUi-horizontal {
+	height: 1px !important;
+	padding: 0 50px;
+	.noUi-handle {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100px !important;
+		height: 37px !important;
+		left: -50px !important;
+		top: -19px !important;
+		font-size: 13px;
+		line-height: 1;
+		font-weight: 900;
+		border-radius: 25px;
+		outline: none;
+		cursor: pointer;
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: 14px;
+			width: 6px;
+			height: 6px;
+			border-style: solid;
+			border-color: #777;
+			background-color: transparent;
+		}
+		&:before {
+			left: 10px;
+			right: auto;
+			border-width: 1px 0 0 1px;
+			transform: rotate(-45deg);
+		}
+		&:after {
+			right: 10px;
+			left: auto;
+			border-width: 1px 1px 0 0;
+			transform: rotate(45deg);
+		}
+	}
+}
+
+/* End of slide */
+/* Button */
+
+.btn__send {
+	width: 240px;
+	height: 46px;
+	font: 900 16px/24px "PT Sans", sans-serif;
+	background: transparent;
+	border: 1px solid $wr-color;
+	border-radius: 25px;
+	color: $wr-color;
+	cursor: pointer;
+	transition: color, background-color .3s;
+	&:hover {
+		background-color: $wr-color;
+		color: #fff;
+	}
+}
+
+/* End of button */

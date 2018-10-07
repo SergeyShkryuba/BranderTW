@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test work</title>
+</head>
+<body>
+	<div class="wrapper">
+		<form action="#">
+			<label class="form__item-text">Вес изделия<input type="text" class="staff" value="15"></label>
+			<label class="form__item-metal">Проба металла
+			<select name="quality" class="selectric metal">
+				<option value="">585 проба</option>
+				<option value="">999 проба</option>
+				<option value="">685 проба</option>
+				<option value="">785 проба</option>
+			</select>
+			</label>
+			<div class="low">
+				<input type="checkbox" class="checkbox" id="check" />
+				<label for="check"><span class="back"></span><span class="forward"></span>Камни и вставки</label>
+				<span class="check__info">Окончательная оценочная стоимость залога может отличаться от указаной в расчете</span>
+			</div>
+			<label class="form__item-rate">Тарифный план
+				<span class="form__tooltip">
+					<span class="form__tooltip-button">i</span>
+					<span class="form__tooltip-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, numquam</span></span>
+				</span>
+				<select name="plan" class="selectric">
+					<option value="">«Простой»</option>
+					<option value="">«Премиум»</option>
+					<option value="">«Золотой»</option>
+					<option value="">«Платиновый»</option>
+				</select>
+			</label>
+			<label class="form__item-discont">Ваш дисконтный статус
+			<select name="status" class="selectric">
+				<option value="">Без статуса</option>
+				<option value="">Без статуса</option>
+				<option value="">Без статуса</option>
+			</select>
+			</label>
+			<div class="slider__wrap">
+				<div class="slider__info">Срок кредитования до продления</div>
+				<div id="slider-range"></div>
+			</div>
+			<button type="submit" class="btn__send">Рассчитать кредит</button>
+		</form>
+	</div>
+
+</body>
+</html>
